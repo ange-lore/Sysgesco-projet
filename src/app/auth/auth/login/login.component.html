@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+<div class="container" id="container">
+	<div class="forms-container">
+		<div class="form-container sign-in-container">
+
+			<form action="#" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+				<h1>Connexion</h1>
+				<!-- <div class="social-container">
+					<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+					<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+					<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+				</div> -->
+				<span>Connectez vous avec vos données personnelles</span>
+				<div class="form-group">
+					<!-- <i class="fa-light fa-envelope"></i> -->
+					<!-- <i class="bi bi-envelope"></i> -->
+					<!-- <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon" fontIcon="mail">
+					</mat-icon> -->
+					<input type="text" placeholder="Email" formControlName="email"
+						[ngClass]="{'is-invalid': submitted  && loginForm.controls['email'].errors }"
+						class="form-control" />
+					<div *ngIf="submitted && loginForm.controls['email'].errors" class="text-danger">
+						<div *ngIf="loginForm.controls['email'].errors['required']">Entrez votre email</div>
+						<div *ngIf="loginForm.controls['email'].errors['email']">L'e-mail doit être une adresse e-mail
+							valide</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<!-- <i class="bi bi-key"></i> -->
+					<!-- <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon" fontIcon="key"></mat-icon> -->
+					<input type="password" placeholder="Mot de passe" formControlName="mdp"
+						[ngClass]="{'is-invalid': submitted  && loginForm.controls['mdp'].errors }"
+						class="form-control" />
+					<div *ngIf="submitted && loginForm.controls['mdp'].errors" class="text-danger">
+						<div *ngIf="loginForm.controls['mdp'].errors['required']">Entrez votre mot de passe</div>
+						<div *ngIf="loginForm.controls['mdp'].errors['minlength']">Le mot de passe doit avoir au moins 8
+							caractères</div>
+					</div>
+					<span class="eye" onclick="myEye()">
+						<!-- <mat-icon class="icon" id="hide1" aria-hidden="false" aria-label="Example home icon"
+							fontIcon="visibilityoff"></mat-icon>
+						<mat-icon class="icon" id="hide2" aria-hidden="false" aria-label="Example home icon"
+							fontIcon="visibilityOffOutlinedIcon"></mat-icon>  -->
+						<!-- <i class="bi bi-eye"></i>
+						<i class="bi bi-eye-slash"></i> -->
+					</span>
+
+				</div>
+
+				<!-- <a href="#">Forgot your password?</a> -->
+				<button>Connexion</button>
+				<!-- [disabled]="!loginForm.valid" -->
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-right">
+					<h1>Bienvenue</h1>
+					<p>Entrez vos données personnelles et commencez votre journée avec nous</p>
+					<button class="ghost" id="signUp" routerLink="/registration">S'inscrire</button>
+				</div>
+			</div>
+		</div>
+		<!-- <img src="assets/image/login.svg" class="image"> -->
+	</div>
+</div>
+
+
+<script src="/login.js"></script>
+<!--  -->
+
+<!-- <i class="fa" [ngClass]="{'fa-eye-slash': !fieldTextType,'fa-eye': fieldTextType}"(click)="toggleFieldTextType()"></i> -->
+
+<!-- <script>
+
+	function myFunction(){
+		var x = document.getElementById("myInput");
+		var y = document.getElementById("hide1");
+		var z = document.getElementById("hide2");
+
+		if(x.type === 'password'){
+			x.type = 'text';
+			y.style.display = "block";
+			z.style.display = "none";
+		}
+		else{
+			x.type = 'password';
+			y.style.display = "none";
+			z.style.display = "block";
+		}
+	}
+</script> -->

@@ -1,0 +1,29 @@
+.heard {
+    text-align: center;
+    line-height: 1rem;
+}
+
+img {
+    width: 11rem;
+    height: 9rem;
+}
+
+h2{
+    font-size: 1rem;
+    margin-bottom: 1px;
+    line-height: 2rem;
+}
+
+p{
+    font-size: 1rem;
+}
+
+hr{
+    position: relative;
+    border: none;
+    height: 5px;
+    background: rgb(236, 247, 21);
+    margin-bottom: 50px;
+    width: 50%;
+    margin-left: 25%;
+}

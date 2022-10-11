@@ -1,0 +1,8 @@
+<div [hidden]="captcha">
+    <p>Bonjour humain potentiel...</p>
+    <re-captcha (resolved)="resolved($event)" siteKey="6Ld3MUsiAAAAAExRGZU5SvdqiKB4PGTZt29paQO-"></re-captcha>
+</div>
+<div [hidden]="!captcha">
+    <!-- <p>{{ email }}</p> -->
+    <app-paiement></app-paiement>
+</div>

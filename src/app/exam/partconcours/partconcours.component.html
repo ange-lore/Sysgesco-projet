@@ -1,0 +1,355 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+
+    <div class="container">
+        <!-- Title -->
+        <div class="d-flex justify-content-between align-items-lg-center py-3 flex-column flex-lg-row">
+            <h2 class="h5 mb-3 mb-lg-0"><a routerLink="/dashboard-nav" class="text-muted"><i
+                        class="bi bi-arrow-left-square me-2"></i></a> Fiche de renseignement</h2>
+        </div>
+        <form action="~#" [formGroup]="partconcoursForm" (ngSubmit)="onSubmit()">
+            <!-- Main content -->
+            <div class="row">
+                <!-- Left side -->
+                <div class="col-lg-8">
+                    <!-- Basic information -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h6 mb-4">Information basique</h3>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Nom</label>
+                                        <input type="text" class="form-control" formControlName="nom"
+                                            [ngClass]="{'is-invalid': submitted  && partconcoursForm.controls['nom'].errors }">
+                                        <div *ngIf="submitted && partconcoursForm.controls['nom'].errors"
+                                            class="text-danger">
+                                            <div *ngIf="partconcoursForm.controls['nom'].errors['required']">Entrez
+                                                votre
+                                                nom</div>
+                                            <div *ngIf="partconcoursForm.controls['nom'].errors['minlength']">Entrez au
+                                                moins 4 caractères</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Prenom</label>
+                                        <input type="text" class="form-control" formControlName="prenom"
+                                            [ngClass]="{'is-invalid': submitted  && partconcoursForm.controls['prenom'].errors }">
+                                    </div>
+                                    <div *ngIf="submitted && partconcoursForm.controls['prenom'].errors"
+                                        class="text-danger">
+                                        <div *ngIf="partconcoursForm.controls['prenom'].errors['required']">Entrez
+                                            votre
+                                            nom</div>
+                                        <div *ngIf="partconcoursForm.controls['prenom'].errors['minlength']">Entrez au
+                                            moins 4 caractères</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Date de naissance</label>
+                                        <input type="date" class="form-control" formControlName="datenaiss"
+                                            [ngClass]="{'is-invalid': submitted  && partconcoursForm.controls['datenaiss'].errors }">
+                                    </div>
+                                    <div *ngIf="submitted && partconcoursForm.controls['datenaiss'].errors"
+                                        class="text-danger">
+                                        <div *ngIf="partconcoursForm.controls['datenaiss'].errors['required']">Entrez
+                                            votre date de naissance</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Lieu</label>
+                                        <input type="text" class="form-control" formControlName="lieu"
+                                            [ngClass]="{'is-invalid': submitted  && partconcoursForm.controls['lieu'].errors }">
+                                        <div *ngIf="submitted && partconcoursForm.controls['lieu'].errors"
+                                            class="text-danger">
+                                            <div *ngIf="partconcoursForm.controls['lieu'].errors['required']">Entrez
+                                                où vous êtez né</div>
+                                            <div *ngIf="partconcoursForm.controls['lieu'].errors['minlength']">Entrez au
+                                                moins 4 caractères</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Address -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h6 mb-4">...</h3>
+                            <div class="mb-3">
+                                <label class="form-label">Adresse permanente</label>
+                                <input type="text" class="form-control" formControlName="adresse"
+                                    [ngClass]="{'is-invalid': submitted  && partconcoursForm.controls['adresse'].errors }">
+                                <div *ngIf="submitted && partconcoursForm.controls['adresse'].errors"
+                                    class="text-danger">
+                                    <div *ngIf="partconcoursForm.controls['adresse'].errors['required']">Entrez
+                                        votre numero de téléphone</div>
+                                    <div *ngIf="partconcoursForm.controls['adresse'].errors['pattern']">Entrez un numero
+                                        de téléphone valide
+                                    </div>
+                                    <div *ngIf="partconcoursForm.controls['adresse'].errors['minlength']">Entrez
+                                        9 caractères</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="Email" class="form-control" class="form-control" formControlName="email"
+                                    [ngClass]="{'is-invalid': submitted  && partconcoursForm.controls['email'].errors }">
+                                <div *ngIf="submitted && partconcoursForm.controls['email'].errors" class="text-danger">
+                                    <div *ngIf="partconcoursForm.controls['email'].errors['required']">Entrez votre
+                                        Email</div>
+                                    <div *ngIf="partconcoursForm.controls['email'].errors['email']">L'e-mail doit être
+                                        une adresse e-mail
+                                        valide</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Nationalité</label>
+                                        <input type="text" class="form-control" formControlName="nationalite"
+                                            [ngClass]="{'is-invalid': submitted  && partconcoursForm.controls['nationalite'].errors }">
+
+                                        <div *ngIf="submitted && partconcoursForm.controls['nationalite'].errors"
+                                            class="text-danger">
+                                            <div *ngIf="partconcoursForm.controls['nationalite'].errors['required']">
+                                                Entrez votre nationalité</div>
+                                            <div *ngIf="partconcoursForm.controls['nationalite'].errors['minlength']">
+                                                Entrez au moins 4 caractères</div>
+                                        </div>
+                                        <!--<select class="select2 form-control select2-hidden-accessible" data-select2-placeholder="Select country" data-select2-id="select2-data-1-gy14" tabindex="-1" aria-hidden="true">
+                      <option data-select2-id="select2-data-3-ibs9"></option>
+                      <option value="AF">Afghanistan</option>
+                      <option value="BS">Bahamas</option>
+                      <option value="KH">Cambodia</option>
+                      <option value="KH">Cameroun</option>
+                      <option value="DK">Denmark</option>
+                      <option value="TL">East Timor</option>
+                      <option value="GM">Gambia</option>
+                    </select><span class="select2 select2-container select2-container--bootstrap-5" dir="ltr" data-select2-id="select2-data-2-46y9" style="width: 391px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-vp8l-container" aria-controls="select2-vp8l-container"><span class="select2-selection__rendered" id="select2-vp8l-container" role="textbox" aria-readonly="true" title="Select country"><span class="select2-selection__placeholder">Select country</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Region d'origine</label>
+                                        <input type="text" class="form-control" formControlName="region"
+                                            [ngClass]="{'is-invalid': submitted  && partconcoursForm.controls['region'].errors }">
+                                        <div *ngIf="submitted && partconcoursForm.controls['region'].errors"
+                                            class="text-danger">
+                                            <div *ngIf="partconcoursForm.controls['region'].errors['required']">Entrez
+                                                où vous êtez né</div>
+                                            <div *ngIf="partconcoursForm.controls['region'].errors['minlength']">Entrez
+                                                au
+                                                moins 4 caractères</div>
+                                        </div>
+                                        <!-- <select class="select2 form-control select2-hidden-accessible" data-select2-placeholder="Select state" data-select2-id="select2-data-4-680y" tabindex="-1" aria-hidden="true">
+                      <option data-select2-id="select2-data-6-cshs"></option>
+                      <option value="AL">Alabama</option>
+                      <option value="CA">California</option>
+                      <option value="DE">Delaware</option>
+                      <option value="FL">Florida</option>
+                      <option value="GA">Georgia</option>
+                      <option value="HI">Hawaii</option>
+                      <option value="ID">Idaho</option>
+                      <option value="KS">Kansas</option>
+                    </select><span class="select2 select2-container select2-container--bootstrap-5" dir="ltr" data-select2-id="select2-data-5-np4c" style="width: 391px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-2fn7-container" aria-controls="select2-2fn7-container"><span class="select2-selection__rendered" id="select2-2fn7-container" role="textbox" aria-readonly="true" title="Select state"><span class="select2-selection__placeholder">Select state</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Filiére</label>
+                                        <select class="form-select" formControlName="matrimonial"
+                                            [ngClass]="{'is-invalid': submitted  && partconcoursForm.controls['matrimonial'].errors }">
+                                            <option value="draft" selected="">Système et Réseaux</option>
+                                            <option value="active">Génie Logiciel</option>
+                                            <option value="active">Software Engineering</option>
+                                        </select>
+
+                                        <div *ngIf="submitted && partconcoursForm.controls['filiere'].errors"
+                                            class="text-danger">
+                                            <div *ngIf="partconcoursForm.controls['filiere'].errors['required']">Entrez
+                                                votre filiére</div>
+                                        </div>
+                                        <!-- <select class="select2 form-control select2-hidden-accessible" data-select2-placeholder="Select city" data-select2-id="select2-data-7-809c" tabindex="-1" aria-hidden="true">
+                      <option data-select2-id="select2-data-9-k35n"></option>
+                      <option value="b">Bangkok</option>
+                      <option value="d">Dubai</option>
+                      <option value="h">Hong Kong</option>
+                      <option value="k">Kuala Lumpur</option>
+                      <option value="l">London</option>
+                      <option value="n">New York City</option>
+                      <option value="m">Macau</option>
+                      <option value="p">Paris</option>
+                    </select><span class="select2 select2-container select2-container--bootstrap-5" dir="ltr" data-select2-id="select2-data-8-3peu" style="width: 391px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-jdfi-container" aria-controls="select2-jdfi-container"><span class="select2-selection__rendered" id="select2-jdfi-container" role="textbox" aria-readonly="true" title="Select city"><span class="select2-selection__placeholder">Select city</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Niveau</label>
+                                        <select class="form-select" formControlName="niveau"
+                                            [ngClass]="{'is-invalid': submitted  && partconcoursForm.controls['niveau'].errors }">
+                                            <option value="draft" selected="">I</option>
+                                            <option value="active">II</option>
+                                            <option value="active">III</option>
+                                        </select>
+                                        <div *ngIf="submitted && partconcoursForm.controls['niveau'].errors"
+                                            class="text-danger">
+                                            <div *ngIf="partconcoursForm.controls['niveau'].errors['required']">Entrez
+                                                votre niveau</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Num CNI</label>
+                                        <input type="text" class="form-control" formControlName="cni"
+                                            [ngClass]="{'is-invalid': submitted  && partconcoursForm.controls['cni'].errors }">
+
+                                        <div *ngIf="submitted && partconcoursForm.controls['cni'].errors"
+                                            class="text-danger">
+                                            <div *ngIf="partconcoursForm.controls['cni'].errors['required']">Entrez
+                                                votre numero de cni</div>
+                                            <div *ngIf="partconcoursForm.controls['cni'].errors['pattern']">Entrez le numero de votre carte d'identité</div>
+                                            <div *ngIf="partconcoursForm.controls['cni'].errors['minlength']">Entrez
+                                                caractères</div>
+                                            <div *ngIf="partconcoursForm.controls['cni'].errors['maxlength']">Entrez 9
+                                                caractères</div>
+                                        </div>
+                                        <!-- <select class="select2 form-control select2-hidden-accessible" data-select2-placeholder="Select city" data-select2-id="select2-data-7-809c" tabindex="-1" aria-hidden="true">
+                      <option data-select2-id="select2-data-9-k35n"></option>
+                      <option value="b">Bangkok</option>
+                      <option value="d">Dubai</option>
+                      <option value="h">Hong Kong</option>
+                      <option value="k">Kuala Lumpur</option>
+                      <option value="l">London</option>
+                      <option value="n">New York City</option>
+                      <option value="m">Macau</option>
+                      <option value="p">Paris</option>
+                    </select><span class="select2 select2-container select2-container--bootstrap-5" dir="ltr" data-select2-id="select2-data-8-3peu" style="width: 391px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-jdfi-container" aria-controls="select2-jdfi-container"><span class="select2-selection__rendered" id="select2-jdfi-container" role="textbox" aria-readonly="true" title="Select city"><span class="select2-selection__placeholder">Select city</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Statut etudiant</label>
+                                        <input type="text" class="form-control" formControlName="statut"
+                                            [ngClass]="{'is-invalid': submitted  && partconcoursForm.controls['statut'].errors }">
+                                        <div *ngIf="submitted && partconcoursForm.controls['statut'].errors"
+                                            class="text-danger">
+                                            <div *ngIf="partconcoursForm.controls['statut'].errors['required']">Entrez
+                                                votre statut</div>
+                                            <div *ngIf="partconcoursForm.controls['statut'].errors['minlength']">Entrez
+                                                au
+                                                moins 4 caractères</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right side -->
+                <div class="col-lg-4">
+                    <!-- Status -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h6">Situation matrimonial</h3>
+                            <select class="form-select" formControlName="matrimonial"
+                                [ngClass]="{'is-invalid': submitted  && partconcoursForm.controls['matrimonial'].errors }">
+                                <option value="draft" selected="">Célibataire</option>
+                                <option value="active">Marié(e)</option>
+                                <option value="active">Veuf/veuve</option>
+                                <option value="active">Divorcé(e)</option>
+                            </select>
+                            <div *ngIf="submitted && partconcoursForm.controls['matrimonial'].errors"
+                                class="text-danger">
+                                <div *ngIf="partconcoursForm.controls['matrimonial'].errors['required']">Entrez
+                                    où vous êtez né</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Avatar -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h6">Image</h3>
+                            <input class="form-control" type="file" formControlName="image"
+                                [ngClass]="{'is-invalid': submitted  && partconcoursForm.controls['image'].errors }">
+
+                            <div *ngIf="submitted && partconcoursForm.controls['image'].errors" class="text-danger">
+                                <div *ngIf="partconcoursForm.controls['image'].errors['required']">Entrez
+                                    votre demi carte photo</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Notes -->
+                    <!-- <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h6">Matricule</h3> -->
+                    <!-- <textarea class="form-control" rows="3"></textarea> -->
+                    <!-- <input type="text" class="form-control">
+                    </div>
+                </div> -->
+                    <!-- Notification settings -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h6">Notification Settings</h3>
+                            <ul class="list-group list-group-flush mx-n2">
+                                <li class="list-group-item px-0 d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <h6 class="mb-0">News and updates</h6>
+                                        <small>News about product and feature updates.</small>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch">
+                                    </div>
+                                </li>
+                                <li class="list-group-item px-0 d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <h6 class="mb-0">Tips and tutorials</h6>
+                                        <small>Tips on getting more out of the platform.</small>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" checked="">
+                                    </div>
+                                </li>
+                                <li class="list-group-item px-0 d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <h6 class="mb-0">User Research</h6>
+                                        <small>Get involved in our beta testing program.</small>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hstack gap-3">
+                <button class="btn btn-light btn-sm btn-icon-text" routerLink="/dashboard-nav"><i class="bi bi-x"></i>
+                    <span class="text">Cancel</span></button>
+                <button class="btn btn-primary btn-sm btn-icon-text" ><i class="bi bi-save"></i> <span
+                        class="text" routerLink="/recaptcha" >Lancer paiement</span></button>
+            </div>
+        </form>
+    </div>
+
+
+
+</div>

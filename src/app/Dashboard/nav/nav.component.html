@@ -1,0 +1,109 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="">Home</a>
+      <a mat-list-item routerLink="dashboard-nav">
+        <img src="/assets/image/dashboard.png" alt="">
+        <h3>Home Dashboard</h3>
+      </a>
+      
+      <a mat-list-item [routerLink]="['/partconcours']">
+        <img src="/assets/image/online-registration.png" alt="">
+        <h3>Inscriptions</h3>
+      </a>
+
+      <a mat-list-item [routerLink]="['/paiement']">
+        <i class="bi bi-cash"></i>
+        <!-- <img src="/assets/image/online-registration.png" alt=""> -->
+        <h3>Paiement</h3>
+      </a>
+      
+      <a mat-list-item [routerLink]="['/Emploi_temps']">
+        <img src="/assets/image/deadline.png" alt="">
+        <h3>Emploi_temps</h3>
+      </a>
+
+      <!-- ------------------------------BUTTON ADMIN ---------------------------------- -->
+      <div class="dropdown">
+        <button class="dropbtn">REP</button>
+        <div class="dropdown-content">
+          <a mat-list-item [routerLink]="['/concours']">
+            <i class="bi bi-pencil-square"></i>
+            <!-- <img src="/assets/image/customer.png" alt=""> -->
+            <h3>Concours</h3>
+          </a>
+          <a mat-list-item [routerLink]="['/Liste']">
+            <i class="bi bi-person-bounding-box"></i>
+            <!-- <img src="/assets/image/customer.png" alt=""> -->
+            <h3>Personnel</h3>
+          </a>
+          <a mat-list-item [routerLink]="['/Liste']">
+            <i class="bi bi-ui-radios"></i>
+            <!-- <img src="/assets/image/customer.png" alt=""> -->
+            <h3>Filiere</h3>
+          </a>
+          <a mat-list-item [routerLink]="['/Liste']">
+            <i class="bi bi-bar-chart-fill"></i>
+            <!-- <img src="/assets/image/customer.png" alt=""> -->
+            <h3>Statistique</h3>
+          </a>
+        </div>
+      </div> <br>
+
+      <!-- -------------------------------BUTTON SCOLARITE -------------------------------------- -->
+      <div class="dropdown">
+        <button class="dropbtn">Scolarité</button>
+        <div class="dropdown-content">
+          <a mat-list-item [routerLink]="['/Emploi_temps']">
+            <img src="/assets/image/deadline.png" alt="">
+            <h3>Niveau</h3>
+          </a>
+          <a mat-list-item [routerLink]="['/Emploi_temps']">
+            <img src="/assets/image/deadline.png" alt="">
+            <h3>Classe</h3>
+          </a>
+          <a mat-list-item [routerLink]="['/Emploi_temps']">
+            <img src="/assets/image/deadline.png" alt="">
+            <h3>Présence</h3>
+          </a>
+          <a mat-list-item [routerLink]="['/Emploi_temps']">
+            <img src="/assets/image/deadline.png" alt="">
+            <h3>Solvabilite</h3>
+          </a>
+          <a mat-list-item [routerLink]="['/concours']">
+            <img src="/assets/image/checklist.png" alt="">
+            <h3>Concours</h3></a>
+          <a mat-list-item [routerLink]="['/Certificat']">
+            <img src="/assets/image/school-certificate.png" alt="">
+            <h3>Certificat</h3>
+          </a>
+        </div>
+      </div>
+      <!-- <button routerLink="admin-settings">scolarite-setting</button> -->
+      
+      <a mat-list-item [routerLink]="['']">
+        <img src="/assets/image/logout.png" alt="">
+        <h3>Déconnection</h3>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon  routerLink="" aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>SYGESCO</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,191 @@
+<app-navbar></app-navbar>
+<!-- <div class="container" id="container">
+	<div class="forms-container" [hidden]="submitted">
+		<div class="form-container sign-in-container">
+
+			<form action="#" (ngSubmit)="onSubmit" #heroForm="ngForm">
+				<h1>S'inscrire</h1>
+				<span>Entrez vos données personnelles</span>
+				<div class="form-group">
+					<input type="text" class="form-control" id="nom" 
+					placeholder="Nom"
+					required 
+					[ngModel]="model.nom" name="nom"
+					#name="ngModel"/>
+					<div class="alert alert-danger" [hidden]="nom.valid || nom.pristine">
+						Entrez votre nom
+					</div>
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="form-control" id="prenom" 
+					placeholder="Prenomom"
+					required 
+					[ngClass]="{'is-invalid': registerForm.get('nom')?.touched  && !registerForm.valid }"
+					[ngModel]="model.prenom" name="prenom"
+					#name="ngModel"/>
+					<div class="alert alert-danger" [hidden]="prenom.valid || prenom.pristine">
+						Entrez votre prenom
+					</div>
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="form-control" id="email" 
+					placeholder="Email"
+					required 
+					[ngModel]="model.prenom" name="email"
+					#name="ngModel"/>
+					<div class="alert alert-danger" [hidden]="email.valid || email.pristine">
+						Entrez votre email
+					</div>
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="form-control" id="mdp" 
+					placeholder="Mot de passe"
+					required 
+					[ngModel]="model.prenom" name="mdp"
+					#name="ngModel"/>
+					<div class="alert alert-danger" [hidden]="mdp.valid || mdp.pristine">
+						Entrez votre mot de passe
+					</div>
+				</div>
+				<button>S'inscire</button>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-right">
+					<h1>Bienvenue!</h1>
+					<p>Pour rester en contact avec vous, veillez vous connecter avec vos information personnelles </p>
+					<button class="ghost" id="signIn">Connexion</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+
+
+
+<!-- DECOMMENTER -->
+<div class="container" id="container">
+	<div class="forms-container">
+		<div class="form-container sign-in-container">
+
+			<form [formGroup]="registerForm" (ngSubmit)="save()">
+				<h1>S'inscrire</h1>
+
+				<!-- ++++++++++++++++++++++++++++++++ -->
+
+
+				<!-- <div class="social-container">
+					<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+					<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+					<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+				</div> -->
+
+				<!-- DECOMMENTER -->
+				<span>Entrez vos données personnelles</span>
+
+				<div class="form-group">
+					<input type="text" placeholder="Nom" formControlName="nom"
+						[ngClass]="{'is-invalid': submitted  && registerForm.controls['nom'].errors }"
+						class="form-control" />
+					<div *ngIf="submitted && registerForm.controls['nom'].errors" class="text-danger">
+						<div *ngIf="registerForm.controls['nom'].errors['required']">Entrez votre nom</div>
+						<div *ngIf="registerForm.controls['nom'].errors['minlength']">Entrez au moins 4 caractères</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<input type="text" placeholder="Prenom" formControlName="prenom"
+						[ngClass]="{'is-invalid': submitted  && registerForm.controls['prenom'].errors }"
+						class="form-control" />
+					<div *ngIf="submitted && registerForm.controls['prenom'].errors" class="text-danger">
+						<div *ngIf="registerForm.controls['prenom'].errors['required']">Entrez votre prenom</div>
+						<div *ngIf="registerForm.controls['prenom'].errors['minlength']">Entrez au moins 4 caractères</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<input type="text" placeholder="Email" formControlName="email"
+						[ngClass]="{'is-invalid': submitted  && registerForm.controls['email'].errors }"
+						class="form-control" />
+					<div *ngIf="submitted && registerForm.controls['email'].errors" class="text-danger">
+						<div *ngIf="registerForm.controls['email'].errors['required']">Entrez votre email</div>
+						<div *ngIf="registerForm.controls['email'].errors['email']">L'e-mail doit être une adresse e-mail valide</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<input type="password" placeholder="Mot de passe" formControlName="mdp"
+						[ngClass]="{'is-invalid': submitted  && registerForm.controls['mdp'].errors }"
+						class="form-control" />
+					<div *ngIf="submitted && registerForm.controls['mdp'].errors" class="text-danger">
+						<div *ngIf="registerForm.controls['mdp'].errors['required']">Entrez votre mot de passe</div>
+						<div *ngIf="registerForm.controls['mdp'].errors['minlength']">Le mot de passe doit avoir au moins 8 caractères</div>
+					</div>
+				</div>
+				<!-- <div class="alert alert-danger" [hidden]="nom.valid || nom.pristine">
+					Entrez votre nom
+				</div> -->
+				<!-- <div class="invalid-feeback">
+						<span *ngIf="registerForm.get(nom).errors?.required">
+							entrer votre nom
+						</span>
+					</div> -->
+
+
+				<!-- <div class="form-group">
+					<input type="text" placeholder="Prenom" id="prenom" formControlName="prenom" required minlength="4"
+						[ngClass]="{'is-invalid': registerForm.get('prenom')?.touched  && !registerForm.valid }"
+						class="form-control ng-untouched ng-pristine ng-valid" />
+				</div> -->
+				<!-- <div class="alert alert-danger" [hidden]="prenom.valid || prenom.pristine">
+					Name is required
+				</div> -->
+
+				<!-- ++++++++++++++++++++++++++++++++++++++++++++ -->
+
+				<!-- <div class="invalid-feeback">
+				<span *ngIf="registerForm.get('nom').errors?.required">
+					Entrez votre nom
+				</span> 
+			</div>  -->
+
+				<!-- DECOMMENTER -->
+
+				<!-- <div class="form-group">
+					<input type="email" placeholder="Email" id="email" required formControlName="email"
+						[ngClass]="{'is-invalid': registerForm.get('email')?.touched  && !registerForm.valid }"
+						class="form-control ng-untouched ng-pristine ng-valid" />
+				</div>
+
+				<div class="form-group">
+					<input type="password" placeholder="Mot de passe" id="mdp" required formControlName="mdp"
+						[ngClass]="{'is-invalid': registerForm.get('mdp')?.touched  && !registerForm.valid }"
+						class="form-control ng-untouched ng-pristine ng-valid" />
+				</div> -->
+
+				<button>S'inscire</button>
+				<!-- <div class="col col-md-4">
+					<div style="position : fixe">{{ preview }}</div>
+				</div> -->
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-right">
+					<h1>Bienvenue!</h1>
+					<p>Pour rester en contact avec vous, veillez vous connecter avec vos information personnelles </p>
+					<button class="ghost" id="signIn" routerLink="/login">Connexion</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- ++++++++++++++++++++++++++++++++ -->
+		<!-- <img src="assets/image/login.svg" class="image"> -->
+		<!-- DECOMMENTER -->
+
+	</div>
+</div>

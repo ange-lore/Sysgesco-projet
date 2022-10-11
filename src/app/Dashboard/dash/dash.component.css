@@ -1,0 +1,354 @@
+/* .grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+} */
+
+
+:root {
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --card-border-radius: 2rem;
+    --border-raduis: 0.4rem;
+    --border-raduis-2: 0.8rem;
+    --border-raduis-3: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+
+    --color-light: rgba(132, 139, 200, 0.18);
+}
+
+
+img {
+    padding-left: 20px;
+    height: 3rem;
+}
+
+/* link{
+font-size: 3em !important;
+} */
+
+/* .date{
+display: inline-block;
+background-color: aliceblue;
+border-radius: 1rem;
+padding: 0.5rem 1.6rem;
+}
+
+.date input[type="date"]{
+background: transparent;
+color: darkblue;
+}
+
+.insights{
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1.6rem;
+color: darkgray;
+}
+
+.insights > div{
+background-color: white;
+padding: 1.8rem;
+border-radius: 18px;
+margin-top: 1rem;
+}
+
+.insights > div:hover{
+box-shadow: none;
+box-shadow: 0 2rem 3rem;
+transition: all 300ms ease;
+}
+
+.insights > div img{
+background-color: greenyellow ;
+padding: 0.5rem;
+border-radius: 50%;
+color: aliceblue;
+font-size: 2rem;
+}
+
+.insights > div.expenses img{
+background-color: aquamarine;
+}
+
+.insights > div.icome img{
+background-color: aqua;
+}
+
+.insights > div .middle{
+display: flex;
+line-height-step: center;
+justify-content: space-between;
+}
+
+.insights h3{
+margin: 1rem 0  0.6rem;
+font-size: 1rem;
+}
+
+.insights .progress {
+position: relative;
+width: 92px;
+height: 92px;
+border-radius: 50%;
+background-color: white;
+}
+
+.insights svg{
+width: 9rem;
+height: 9rem;
+}
+
+.insights svg circle {
+fill: none;
+stroke: blue;
+stroke-width: 14;
+stroke-linecap: round;
+transform: translate(5px, 5px);
+stroke-dasharray: 110;
+stroke-dashoffset: 92;
+}
+
+.insights .etudiants svg circle{
+stroke-dashoffset: -30;
+stroke-dasharray: 200;
+}
+
+.insights .enseignants svg circle{
+stroke-dashoffset: 20;
+stroke-dasharray: 80;
+}
+
+.insights .utilisateur svg circle{
+stroke-dashoffset: 35;
+stroke-dasharray: 110;
+}
+
+.insights .progress .number{
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+} */
+
+/* q------------------------------- liste des utilisateurs---------------------------------- */
+
+
+.container {
+    margin-top: 5rem;
+}
+
+body {
+    margin-top: 20px;
+    background-color: #eee;
+}
+
+.project-list-table {
+    border-collapse: separate;
+    border-spacing: 0 12px
+}
+
+.project-list-table tr {
+    background-color: #fff
+}
+
+.table-nowrap td,
+.table-nowrap th {
+    white-space: nowrap;
+}
+
+.table-borderless>:not(caption)>*>* {
+    border-bottom-width: 0;
+}
+
+.table>:not(caption)>*>* {
+    padding: 0.75rem 0.75rem;
+    background-color: var(--bs-table-bg);
+    border-bottom-width: 1px;
+    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+}
+
+.avatar-sm {
+    height: 2rem;
+    width: 2rem;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.me-2 {
+    margin-right: 0.5rem !important;
+}
+
+img,
+svg {
+    vertical-align: middle;
+}
+
+a {
+    color: #0a2a64;
+    text-decoration: none;
+}
+
+.badge-soft-danger {
+    color: #f56e6e !important;
+    background-color: rgba(245, 110, 110, .1);
+}
+
+.badge-soft-success {
+    color: #63ad6f !important;
+    background-color: rgba(99, 173, 111, .1);
+}
+
+.badge-soft-primary {
+    color: #3b76e1 !important;
+    background-color: rgba(59, 118, 225, .1);
+}
+
+.badge-soft-info {
+    color: #57c9eb !important;
+    background-color: rgba(87, 201, 235, .1);
+}
+
+.avatar-title {
+    align-items: center;
+    background-color: #3b76e1;
+    color: #fff;
+    display: flex;
+    font-weight: 500;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+}
+
+.bg-soft-primary {
+    background-color: rgba(59, 118, 225, .25) !important;
+}
+
+
+/* =========================================== new dashboard ==================================================== */
+
+body {
+    margin-top: 20px;
+    background-color: #f7f7ff;
+}
+
+.radius-10 {
+    border-radius: 10px !important;
+}
+
+.border-info {
+    border-left: 5px solid #0dcaf0 !important;
+}
+
+.border-danger {
+    border-left: 5px solid #fd3550 !important;
+}
+
+.border-success {
+    border-left: 5px solid #15ca20 !important;
+}
+
+.border-warning {
+    border-left: 5px solid #ffc107 !important;
+}
+
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0px solid rgba(0, 0, 0, 0);
+    border-radius: .25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+}
+
+.bg-gradient-scooter {
+    background: #17ead9;
+    background: -webkit-linear-gradient(45deg, #17ead9, #6078ea) !important;
+    background: linear-gradient(45deg, #17ead9, #6078ea) !important;
+}
+
+.widgets-icons-2 {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ededed;
+    font-size: 27px;
+    border-radius: 10px;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.ms-auto {
+    margin-left: auto !important;
+}
+
+.bg-gradient-bloody {
+    background: #f54ea2;
+    background: -webkit-linear-gradient(45deg, #f54ea2, #ff7676) !important;
+    background: linear-gradient(45deg, #f54ea2, #ff7676) !important;
+}
+
+.bg-gradient-ohhappiness {
+    background: #00b09b;
+    background: -webkit-linear-gradient(45deg, #00b09b, #96c93d) !important;
+    background: linear-gradient(45deg, #00b09b, #96c93d) !important;
+}
+
+.bg-gradient-blooker {
+    background: #ffdf40;
+    background: -webkit-linear-gradient(45deg, #ffdf40, #ff8359) !important;
+    background: linear-gradient(45deg, #ffdf40, #ff8359) !important;
+}
+
+.card.radius-10 {
+    width: 205px;
+    height: 120px;
+}
+/* 
+div.row.row-cols-1{
+    display: block;
+}
+div.row.row-cols-1.col.card{
+    margin-left: 200px;
+} */
+div.col.card.radius-10.border-start.border-0.border-3border-danger{
+    margin-left: -220px;
+}

@@ -1,0 +1,53 @@
+/* ============================================ BUTTON ================================================================ */
+
+div.hstack.gap-3{
+    margin-left: 590px;
+    margin-top: 50px;
+}
+
+
+body{
+    background:#eee;
+}
+
+.card {
+    box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: 1rem;
+}
+
+.card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.5rem 1.5rem;
+}
+
+.hstack {
+    margin-left: 80rem;
+    margin-bottom: 5rem;
+}
+
+button.btn.btn {
+    padding: 1rem 1.5rem;
+}
+
+button.btn.btn-light {
+    font-size: 1.5rem;
+    background-color: rgb(243, 8, 8);
+}
+
+button.btn.btn-primary {
+    font-size: 1.5rem;
+
+}
