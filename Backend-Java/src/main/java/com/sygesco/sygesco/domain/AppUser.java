@@ -20,7 +20,7 @@ import static javax.persistence.FetchType.EAGER;
 public class AppUser {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.TABLE)
   private Long id ;
   private String name;
   private String username;

@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,  FormGroup, Validators } from '@angular/forms';
-//import { Hero } from './hero';
-
-
-// const myHero =  new Hero(42, 'SkyDog',
-//                        'Rollover',
-//                        'Leslie@gmail.com', 'moi');
-// console.log('My hero is called ' + myHero.nom); // "My hero is called SkyDog"
-// console.log('My hero is called ' + myHero.prenom);
+import {AuthService} from "../../../Services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-registration',
@@ -19,7 +13,7 @@ export class RegistrationComponent implements OnInit {
   registerForm!:FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder){}
+  constructor(private formBuilder: FormBuilder, private auth: AuthService, private router: Router){}
 
   ngOnInit() {
     //Validation
@@ -37,50 +31,21 @@ export class RegistrationComponent implements OnInit {
 
     if (this.registerForm.invalid){
       alert('veillez bien remplir les champs')
-    }else
-
-    alert("success");
+    }else{
+      this.auth.register(
+        this.registerForm.getRawValue().nom,
+          this.registerForm.getRawValue().prenom,
+          this.registerForm.getRawValue().email,
+          this.registerForm.getRawValue().mdp
+        )
+        .subscribe(res =>{
+          alert("User Successfully Register. ");
+          this.router.navigate(['/login'])
+        },error =>{
+          console.log("error");
+        });
+    }
   }
 }
 
-
-//   powers = ['Really Smart', 'Super Flexible',
-//   'Super Hot', 'Weather Changer'];
-
-// model = new Hero(18, 'Dr IQ', 'ange', 'ange@gmail.com',this.powers[0], );
-
-// submitted = false;
-// nom: any;
-// prenom: any;
-// email: any;
-// mdp: any;
-
-// onSubmit() { this.submitted = true; }
-
-//   public user: Hero = new Hero(42, '', '', '', '');
-
-//   registerForm = new FormGroup({
-//     nom: new FormControl(''),
-//     prenom: new FormControl(''),
-//     email: new FormControl(''),
-//     mdp: new FormControl(''),
-//   });
-  
-
-//   preview: string = '';
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-
-//   }
-
-//   save() {
-//     this.preview = JSON.stringify(this.registerForm.touched);
-//   }
-
-//   newHero() {
-//     this.model = new Hero(42, '', '', '', '');
-//   }
-// 
 

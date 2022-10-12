@@ -1,4 +1,4 @@
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Users } from '../Modeles/users.model';
@@ -12,6 +12,13 @@ import {map} from "rxjs/operators";
 })
 export class AuthService {
   private apiServiceUrl = environment.apiBaseUrl;
+  header = new HttpHeaders({
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE',
+    'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
+  })
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this._isLoggedIn$.asObservable();
 
@@ -23,14 +30,13 @@ export class AuthService {
   }
 
   public login(email : string, password : string){
-    return this.http.post<any>(`${this.apiServiceUrl}/api/login`,
-    {
+    return this.http.post<any>(`${this.apiServiceUrl}/login`, {
       email,
       password
-    }).pipe(
+    },{headers: this.header}).pipe(
       tap((res:any) =>{
-        localStorage.setItem('access_token', res.jwt);
-        this._isLoggedIn$.next(true);
+        // localStorage.setItem('access_token', res.jwt);
+        // this._isLoggedIn$.next(true);
         console.log("User id", res.username);
       })
     )
@@ -41,10 +47,13 @@ export class AuthService {
     this._isLoggedIn$.next(false);
   }
 
-  public register(user : Users): Observable<Users>{
+  public register(name : String , username: String, useremail: String, password : String): Observable<Users>{
     return this.http.post<any>(`${this.apiServiceUrl}/auth/register`, {
-      user
-    });
+      name,
+      username,
+      useremail,
+      password
+    })
   }
 
   getToken(){

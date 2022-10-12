@@ -27,6 +27,8 @@ import { PaiementComponent } from './exam/paiement/paiement.component';
 import { ResultatComponent } from './exam/resultat/resultat.component';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { RecaptchaComponent } from './exam/recaptcha/recaptcha.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthInterceptorService} from "./Services/auth-interceptor.service";
 
 
 @NgModule({
@@ -61,9 +63,16 @@ import { RecaptchaComponent } from './exam/recaptcha/recaptcha.component';
     MatMenuModule,
     AppRoutingModule,
     MatIconModule,
-    RecaptchaModule    
+    RecaptchaModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -37,7 +37,6 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequiredArgsConstructor
 @RequestMapping("/api")
 public class UserResource {
-
   private final UserService userService;
 
   @GetMapping("/users")

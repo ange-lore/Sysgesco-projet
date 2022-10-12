@@ -5,7 +5,6 @@ import com.sygesco.sygesco.repo.CandidateRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -23,11 +22,9 @@ public class CandidateServiceImpl implements CandidateService {
     return candidateRepo.save(candidate);
   }
 
-
   @Override
   public List<Candidate> getCandidates() {
     log.info("Fetching All Users {}");
     return candidateRepo.findAll();
   }
-
 }
