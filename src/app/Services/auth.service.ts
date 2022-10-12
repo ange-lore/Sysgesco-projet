@@ -1,79 +1,73 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { User } from '../Modeles/user.modele';
+import { Users } from '../Modeles/users.model';
+import {environment} from "../../environments/environment";
+import {BehaviorSubject, catchError, Observable, tap, throwError} from "rxjs";
+import {map} from "rxjs/operators";
 
- 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  //@ts-ignore
-  users: User[] = [{"nomUser":"DRH","password": "admin", "roles": ['ADMIN'] }];
+  private apiServiceUrl = environment.apiBaseUrl;
+  private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
+  isLoggedIn$ = this._isLoggedIn$.asObservable();
 
-  host: string = 'http://localhost:8081/users';
+  currentUser= {};
 
-  username!: string;
-  role!: Array<string>;
-
-  public loggedUser!: string;
-  public isLoggedIn: Boolean= false;
-  public roles!: string[];
-
-  constructor(private router: Router, private http: HttpClient) { }
-
-  getUser(username: string): Observable<User>
-  {
-    const url = `${this.host}/search/findByNomUser?username=${username}`;
-    return this.http.get<User>(url);
+  constructor(private http: HttpClient) {
+    const token=localStorage.getItem('access_token');
+    this._isLoggedIn$.next(!! token);
   }
 
-  signIn (user : User): Boolean{
+  public login(email : string, password : string){
+    return this.http.post<any>(`${this.apiServiceUrl}/api/login`,
+    {
+      email,
+      password
+    }).pipe(
+      tap((res:any) =>{
+        localStorage.setItem('access_token', res.jwt);
+        this._isLoggedIn$.next(true);
+        console.log("User id", res.username);
+      })
+    )
+  }
 
-    let validUser: Boolean = false;
-    this.users.forEach((curUser) => {
-      if (user.username == curUser.username && user.password == curUser.password){
-        validUser = true;
-        this.loggedUser = curUser.username;
-        this.isLoggedIn = true;
+  public doLogout(){
+    localStorage.clear();
+    this._isLoggedIn$.next(false);
+  }
 
-        this.roles = curUser.roles;
-        localStorage.setItem('utilisateur connecté', this.loggedUser);
-        localStorage.setItem('est connecté', String(this.isLoggedIn));
-      }
-     });
+  public register(user : Users): Observable<Users>{
+    return this.http.post<any>(`${this.apiServiceUrl}/auth/register`, {
+      user
+    });
+  }
 
-     isAdmin() : Boolean{
-      if (!this.roles)
-      return falsereturn (this.roles.indexOf('ADMIN') > -1);
-     }
+  getToken(){
+    return localStorage.getItem('access_token');
+  }
 
-     logout() {
-      this.isLoggedIn = false;
-      //@ts-ignore
-      this.loggedUser = undefined;
-      //@ts-ignore
-      this.roles = undefined;
-      localStorage.removeItem(key: 'loggedUser');
-      this.router.navigate(commands: ['/login']);
-     }
+  getUserProfile(user : Users): Observable<Users>{
+    return this.http.get<any>(`${this.apiServiceUrl}/${user.id}`)
+      .pipe(
+        map((res) =>{
+          return res || {};
+        }),
+        catchError(this.handleError)
+      );
+  }
 
-     detLoggedUserFromLocalStorage (login: string){
-      this.loggedUser = login;
-      this.isLoggedIn = true;
-      this.getUserRoles(login);
-     }
-
-     getUserRoles(username : string){
-
-      this.users.forEach( (curUser) => {
-
-        if (curUser.username = this.username){
-          //@ts-ignore
-          this.roles = curUser.roles;
-        }
-      });
-     }
+  handleError(error: HttpErrorResponse) {
+    let msg='';
+    if(error.error instanceof ErrorEvent){
+      msg = error.error.message;
+    }else{
+      msg =  `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    return throwError(msg);
   }
 }
