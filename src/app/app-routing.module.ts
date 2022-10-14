@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
   {path: '', redirectTo: '/registration', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: '', redirectTo: '/connexion', pathMatch: 'full'},
   {path: 'concours', component: ConcoursComponent},
   {path: '', redirectTo: '/concours', pathMatch: 'full'},
   {path: 'partconcours', component: PartconcoursComponent},
@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/paiement', pathMatch: 'full'},
   {path: 'resultat', component: ResultatComponent},
   {path: '', redirectTo: '/resultat', pathMatch: 'full'},
-  {path: 'paiement', component: RecaptchaComponent},
+  {path: 'recaptcha', component: RecaptchaComponent},
   {path: '', redirectTo: '/recaptcha', pathMatch: 'full'},
 
 

@@ -10,36 +10,94 @@
         <img src="/assets/image/dashboard.png" alt="">
         <h3>Home Dashboard</h3>
       </a>
-      
-      <a mat-list-item [routerLink]="['/partconcours']">
-        <img src="/assets/image/online-registration.png" alt="">
-        <h3>Inscriptions</h3>
-      </a>
-
-      <a mat-list-item [routerLink]="['/paiement']">
-        <i class="bi bi-cash"></i>
-        <!-- <img src="/assets/image/online-registration.png" alt=""> -->
-        <h3>Paiement</h3>
-      </a>
-      
       <a mat-list-item [routerLink]="['/Emploi_temps']">
         <img src="/assets/image/deadline.png" alt="">
         <h3>Emploi_temps</h3>
       </a>
-
-      <!-- ------------------------------BUTTON ADMIN ---------------------------------- -->
+      <a class="dropdown-item" mat-list-item [routerLink]="['/web-video']">
+        <i class="bi bi-camera-video"></i>
+        <h3>Vidéo conférence</h3>
+      </a>
+      <div class="drop">
+      <!-- ------------------------------BUTTON Comptabilite ---------------------------------- -->
       <div class="dropdown">
-        <button class="dropbtn">REP</button>
+        <button class="dropbtn"><i class="bi bi-credit-card-2-back"></i>Comptabilité</button>
+        <div class="dropdown-content">
+          <a mat-list-item [routerLink]="['/Emploi_temps']">
+            <i class="bi bi-list-check"></i>
+            <!-- <img src="/assets/image/deadline.png" alt=""> -->
+            <h3>Liste paiement</h3>
+          </a>
+          <a mat-list-item [routerLink]="['/Emploi_temps']">
+
+            <i class="bi bi-cash"></i>
+            <!-- <img src="/assets/image/deadline.png" alt=""> -->
+            <h3>Solvabilite</h3>
+          </a>
+          <a mat-list-item [routerLink]="['/Liste']">
+            <i class="bi bi-bar-chart-fill"></i>
+            <!-- <img src="/assets/image/customer.png" alt=""> -->
+            <h3>Statistique</h3>
+          </a>
+        </div>
+      </div> <br>
+
+      <!-- -------------------------------BUTTON SCOLARITE -------------------------------------- -->
+      <div class="dropdown">
+        <button class="dropbtn"><i class="bi bi-easel2"></i>Scolarité</button>
         <div class="dropdown-content">
           <a mat-list-item [routerLink]="['/concours']">
             <i class="bi bi-pencil-square"></i>
             <!-- <img src="/assets/image/customer.png" alt=""> -->
             <h3>Concours</h3>
           </a>
+          <a mat-list-item [routerLink]="['/Emploi_temps']">
+            <!-- <img src="/assets/image/deadline.png" alt=""> -->
+            <!-- <i class="bi bi-diagram-3"></i> -->
+            <i class="bi bi-graph-up-arrow"></i>
+            <h3>Niveau</h3>
+          </a>
+          <a mat-list-item [routerLink]="['/Emploi_temps']">
+            <i class="bi bi-person-rolodex"></i>
+            <!-- <img src="/assets/image/deadline.png" alt=""> -->
+            <h3>Classe</h3>
+          </a>
+          <a mat-list-item [routerLink]="['/Emploi_temps']">
+            <!-- <img src="/assets/image/deadline.png" alt=""> -->
+            <i class="bi bi-file-ppt"></i>
+            <h3>Présence</h3>
+          </a>
+          <a mat-list-item [routerLink]="['/Emploi_temps']">
+            <i class="bi bi-cash"></i>
+            <!-- <img src="/assets/image/deadline.png" alt=""> -->
+            <h3>Solvabilite</h3>
+          </a>
+          <a mat-list-item [routerLink]="['/concours']">
+            <img src="/assets/image/checklist.png" alt="">
+            <h3>Concours</h3></a>
+          <a mat-list-item [routerLink]="['/Certificat']">
+            <img src="/assets/image/school-certificate.png" alt="">
+            <h3>Certificat</h3>
+          </a>
+        </div>
+      </div> <br>
+      <!-- <button routerLink="admin-settings">scolarite-setting</button> -->
+
+      <!--+++++++++++++++++++++++++++++++++++++++++++++++++ COMPTABILITE  +++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+      <div class="dropdown">
+        
+        <button class="dropbtn"><i class="bi bi-person-circle"></i>REP</button>
+        <div class="dropdown-content">
           <a mat-list-item [routerLink]="['/Liste']">
             <i class="bi bi-person-bounding-box"></i>
             <!-- <img src="/assets/image/customer.png" alt=""> -->
             <h3>Personnel</h3>
+          </a>
+          <a mat-list-item [routerLink]="['/Liste']">
+            <i class="bi bi-person-badge"></i>
+            <!-- <img src="/assets/image/customer.png" alt=""> -->
+            <h3>Staff</h3>
           </a>
           <a mat-list-item [routerLink]="['/Liste']">
             <i class="bi bi-ui-radios"></i>
@@ -52,39 +110,8 @@
             <h3>Statistique</h3>
           </a>
         </div>
-      </div> <br>
-
-      <!-- -------------------------------BUTTON SCOLARITE -------------------------------------- -->
-      <div class="dropdown">
-        <button class="dropbtn">Scolarité</button>
-        <div class="dropdown-content">
-          <a mat-list-item [routerLink]="['/Emploi_temps']">
-            <img src="/assets/image/deadline.png" alt="">
-            <h3>Niveau</h3>
-          </a>
-          <a mat-list-item [routerLink]="['/Emploi_temps']">
-            <img src="/assets/image/deadline.png" alt="">
-            <h3>Classe</h3>
-          </a>
-          <a mat-list-item [routerLink]="['/Emploi_temps']">
-            <img src="/assets/image/deadline.png" alt="">
-            <h3>Présence</h3>
-          </a>
-          <a mat-list-item [routerLink]="['/Emploi_temps']">
-            <img src="/assets/image/deadline.png" alt="">
-            <h3>Solvabilite</h3>
-          </a>
-          <a mat-list-item [routerLink]="['/concours']">
-            <img src="/assets/image/checklist.png" alt="">
-            <h3>Concours</h3></a>
-          <a mat-list-item [routerLink]="['/Certificat']">
-            <img src="/assets/image/school-certificate.png" alt="">
-            <h3>Certificat</h3>
-          </a>
-        </div>
       </div>
-      <!-- <button routerLink="admin-settings">scolarite-setting</button> -->
-      
+    </div>
       <a mat-list-item [routerLink]="['']">
         <img src="/assets/image/logout.png" alt="">
         <h3>Déconnection</h3>
