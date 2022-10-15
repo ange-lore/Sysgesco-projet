@@ -12,6 +12,8 @@ import { PartconcoursComponent } from './exam/partconcours/partconcours.componen
 import { PaiementComponent } from './exam/paiement/paiement.component';
 import { ResultatComponent } from './exam/resultat/resultat.component';
 import { RecaptchaComponent } from './exam/recaptcha/recaptcha.component';
+import { SolvabiliteComponent } from './comptabilite/solvabilite/solvabilite.component';
+import { ListePaiementComponent } from './comptabilite/liste-paiement/liste-paiement.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,10 @@ const routes: Routes = [
   {path: '', redirectTo: '/resultat', pathMatch: 'full'},
   {path: 'recaptcha', component: RecaptchaComponent},
   {path: '', redirectTo: '/recaptcha', pathMatch: 'full'},
+  {path: 'solvabilite', component: SolvabiliteComponent},
+  {path: '', redirectTo: '/solvabilite', pathMatch: 'full'},
+  {path: 'listepaiement', component: ListePaiementComponent},
+  {path: '', redirectTo: '/listepaiement', pathMatch: 'full'},
 
 
   {

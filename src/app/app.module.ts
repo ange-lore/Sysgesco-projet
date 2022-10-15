@@ -29,6 +29,8 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { RecaptchaComponent } from './exam/recaptcha/recaptcha.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptorService} from "./Services/auth-interceptor.service";
+import { SolvabiliteComponent } from './comptabilite/solvabilite/solvabilite.component';
+import { ListePaiementComponent } from './comptabilite/liste-paiement/liste-paiement.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import {AuthInterceptorService} from "./Services/auth-interceptor.service";
     PartconcoursComponent,
     PaiementComponent,
     ResultatComponent,
-    RecaptchaComponent
+    RecaptchaComponent,
+    SolvabiliteComponent,
+    ListePaiementComponent
   ],
   imports: [
     BrowserModule,

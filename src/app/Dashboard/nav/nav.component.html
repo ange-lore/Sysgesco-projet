@@ -23,12 +23,12 @@
       <div class="dropdown">
         <button class="dropbtn"><i class="bi bi-credit-card-2-back"></i>Comptabilité</button>
         <div class="dropdown-content">
-          <a mat-list-item [routerLink]="['/Emploi_temps']">
+          <a mat-list-item [routerLink]="['/listepaiement']">
             <i class="bi bi-list-check"></i>
             <!-- <img src="/assets/image/deadline.png" alt=""> -->
             <h3>Liste paiement</h3>
           </a>
-          <a mat-list-item [routerLink]="['/Emploi_temps']">
+          <a mat-list-item [routerLink]="['/solvabilite']">
 
             <i class="bi bi-cash"></i>
             <!-- <img src="/assets/image/deadline.png" alt=""> -->
@@ -67,14 +67,11 @@
             <i class="bi bi-file-ppt"></i>
             <h3>Présence</h3>
           </a>
-          <a mat-list-item [routerLink]="['/Emploi_temps']">
+          <a mat-list-item [routerLink]="['/solvabilite']">
             <i class="bi bi-cash"></i>
             <!-- <img src="/assets/image/deadline.png" alt=""> -->
             <h3>Solvabilite</h3>
           </a>
-          <a mat-list-item [routerLink]="['/concours']">
-            <img src="/assets/image/checklist.png" alt="">
-            <h3>Concours</h3></a>
           <a mat-list-item [routerLink]="['/Certificat']">
             <img src="/assets/image/school-certificate.png" alt="">
             <h3>Certificat</h3>

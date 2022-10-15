@@ -1,0 +1,18 @@
+.body{
+    background-color: #f1f1f1;
+}
+
+
+    img {
+        width: 11rem;
+        height: 9rem;
+    }
+
+    .container{
+        width: 100%;
+        background-color: #f1f1f1;
+    }
+
+    h2{
+        text-align: center;
+    }
