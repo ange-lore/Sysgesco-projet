@@ -20,34 +20,24 @@ div.collapse#navbarSupportedContent{
     display: inline-block;
   }
   
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
 
   .dropdown-item{
     font-size: 1.5rem;
   }
   
-  .dropdown-content ul {
-    color: black;
-    padding: 12px 10px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover{
-    color: #0d6efd;
-  }
-  
-  .dropdown:hover .dropdown-content{
-    display: block;
-  }
 
   a#navbarDropdown.nav-link {
     margin-top: 10px;
+  }
+
+  .dropdown-menu a:hover{
+    margin-left: 0.7rem;
+  }
+
+  .dropdown-menu a:hover{
+    /* color: #0d6efd; */
+  }
+  
+  .dropdown-menu{
+    padding: 1.50rem 1.25rem;
   }

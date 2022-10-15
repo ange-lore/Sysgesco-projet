@@ -11,53 +11,45 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="">Accueil</a>
         </li>
-        <div class="dropdown">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
+        <li class="nav-item dropdown">
+          <div class="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               MySYSGESCO
             </a>
-            <div class="dropdown-content">
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li class="nav-item">
-                  <a class="dropdown-item" mat-list-item routerLink="/login"> Connexion</a>
-                </li>
-                <li class="nav-item">
-                  <a class="dropdown-item" mat-list-item routerLink="/registration"> Inscription</a>
-                </li>
-                <li class="nav-item">
-                  <a class="dropdown-item" mat-list-item routerLink=""> Déconnection</a>
-                </li>
-              </ul>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" mat-list-item routerLink="/login"> Connexion</a>
+              <a class="dropdown-item" mat-list-item routerLink="/registration"> Inscription</a>
+              <a class="dropdown-item" mat-list-item routerLink=""> Déconnection</a>
             </div>
-          </li>
-        </div>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/dashboard-nav"> Dashboard</a>
+          </div>
         </li>
-        <div class="dropdown">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Concours
-            </a>
-            <div class="dropdown-content">
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" mat-list-item [routerLink]="['/partconcours']">Inscription concours</a>
-                </li>
-                <li><a class="dropdown-item" mat-list-item [routerLink]="['/paiement']">paiement frais concours</a>
-                </li>
-                <li><a class="dropdown-item" mat-list-item [routerLink]="['/resultat']">Résultat concours</a></li>
-              </ul>
-            </div>
-          </li>
+      
+   
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/dashboard-nav"> Dashboard</a>
+    </li>
+    <li class="nav-item dropdown">
+    <div class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Concours
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" mat-list-item [routerLink]="['/partconcours']">Inscription concours</a>
+          <a class="dropdown-item" mat-list-item [routerLink]="['/paiement']">paiement frais concours</a>
+          <a class="dropdown-item" mat-list-item [routerLink]="['/resultat']">Résultat concours</a>
         </div>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">A propos</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-      </form>
-    </div>
+      </div>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">A propos</a>
+    </li>
+    </ul>
+    <form class="d-flex">
+      <!-- <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Recherche</button> -->
+    </form>
+  </div>
   </div>
 </nav>
